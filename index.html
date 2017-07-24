@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="turtleFacts">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Turtle Facts and Quiz</title>
+    <!-- Bootstrap css and my own css -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="page-header">
+        <h1>Turtle Facts Quiz</h1>
+        <h3>
+            Learn about all the turtles below before you decide to take on the
+            <strong>TURTLE QUIZ</strong>
+        </h3>
+    </div>
+    <div ng-controller="listCtrl as list" ng-hide="list.quizMetrics.quizActive || list.quizMetrics.resultsActive">
+        <div ng-include=" 'list.html' "></div>
+    </div><!-- List Controller -->
+
+
+    <div ng-controller="quizCtrl as quiz" ng-show="quiz.quizMetrics.quizActive">
+        <div ng-include=" 'quiz.html' "></div>
+    </div><!-- quiz controller -->
+
+
+    <div ng-controller="resultsCtrl as results" ng-show="results.quizMetrics.resultsActive">
+        <div ng-include=" 'results.html' "></div>
+    </div>
+
+</div>
+
+<!-- third party js -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<!-- Our application scripts -->
+<script src="/js/app.js"></script>
+<script src="/js/controllers/list.js"></script>
+<script src="/js/controllers/quiz.js"></script>
+<script src="/js/controllers/results.js"></script>
+<script src="/factories/quizMetrics.js"></script>
+<script src="/factories/dataservice.js"></script>
+
+</body>
+</html>
